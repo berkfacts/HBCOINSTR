@@ -1,0 +1,660 @@
+/* menü ve navbar*/
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+ a{
+    text-decoration: none;
+  }
+  
+  li{
+    list-style: none;
+    margin: 0; /* Remove the default margin on list items */
+  }
+  
+  nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 8vh;
+    background: black;
+    color: #eee;
+    font-family: 'Roboto', sans-serif;
+    padding: 0 20px; /* Add padding to the nav for spacing */
+  }
+  
+  .nav-logo img {
+  width:  50px;
+  height: 50px;
+}
+  .social-icon {
+  position: relative;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icon a {
+  margin: 0 10px;
+}
+
+.social-icon img {
+  width:  30px;
+  height: 30px;
+}
+  
+  .nav-links{
+    display: flex;
+    justify-content: center; /* Menü linklerini yatayda ortalama */
+    align-items: center; /* Menü linklerini dikeyde ortalama */
+    width: 50%;
+    margin-left: 186px;
+
+  }
+  .nav-links ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  justify-content: center; /* Center-align the menu links */
+  align-items: center;
+  margin-left: 30px; /* Add left margin to shift the menu links slightly to the right */
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+}
+  .nav-links a{
+    color: #eee;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin: 0 10px; /* Add some horizontal spacing between menu links */
+
+  }
+  .nav-links a:hover{
+    color: blue;
+  }
+  .nav-links a.active{
+    color: yellow;
+  }
+  .nav-links li button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+  .nav-links .tr {
+  width: 45px;
+  height: 30px;
+  margin-right: 5px;
+  margin-top: -17px;
+}
+.nav-links .en{
+  width: 60px;
+  height: 30px;
+  margin-right: 5px;
+  margin-top: -17px;
+}
+
+
+
+/* Genel stil */
+.language-select-container {
+    display: flex;
+    align-items: center;
+}
+
+#language-select {
+    padding: 10px;
+    font-size: 16px;
+    background-color: yellow; /* Arka plan rengi - istediğiniz rengi burada belirleyin */
+    color: black;
+}
+
+#language-select option {
+    padding: 5px;
+}
+
+#language-select option img {
+    width: 20px;
+    height: auto;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Mobil cihazlara uyumlu stil */
+@media (max-width: 767px) {
+    #language-select {
+        font-size: 14px;
+    }
+
+    #language-select option img {
+        width: 10px; /* Örneğin 10px olarak küçültebilirsiniz */
+    }
+}
+
+ 
+/* Bayrakların stillemeleri */
+#turkish-flag,
+#english-flag {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  height: 18px;
+  vertical-align: middle;
+}
+
+/* Bayraklara aralık vermek için */
+#turkish-flag + #english-flag {
+  margin-left: 10px;
+}
+
+/* Türk bayrağını sağa itmek */
+#turkish-flag {
+  order: 2;
+}
+
+/* İngiliz bayrağını sağa itmek */
+#english-flag {
+  order: 1;
+}
+
+  
+  .burger{
+    display: none;
+    cursor: pointer;
+  }
+  
+  .burger .line1,
+  .burger .line2,
+  .burger .line3{
+    width: 24px;
+    height: 3px;
+    background-color: #eee;
+    transition: .3s ease;
+  }
+  .burger .line2{
+    margin: 3px 0px;
+  }
+  
+  @media screen and (max-width: 768px){
+    body{
+      overflow-x: hidden;
+    }
+  
+    .burger{
+      display: block;
+    }
+  
+    .nav-links{
+      position: absolute;
+      top: 8vh;
+      right: 0;
+      width: 100%;
+      height: 23vh;
+      display: flex;
+      flex-direction: column;
+      background: black;
+      align-items: center;
+      justify-content: space-around;
+      transform: translateX(100%);
+      transition: .5s ease;
+    }
+    .nav-logo img {
+  width:  40px;
+  height: 40px;
+}
+     .nav-links .tr {
+  width: 45px;
+  height: 30px;
+  margin-right: 61px;
+  margin-top: -14px;
+}
+.nav-links .en{
+  width: 60px;
+  height: 30px;
+  margin-right: -78px;
+  margin-top: -43px;
+}
+ .social-icon {
+  position: relative;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icon a {
+  margin: 0 10px;
+}
+
+.social-icon img {
+  width:  22px;
+  height: 22px;
+}
+
+
+   
+    .nav-links li{
+      opacity: 0;
+    }
+  }
+  
+  .nav-active{
+    transform: translateX(0);
+  }
+  
+  .close .line1{
+    transform: rotate(-45deg) translate(-5px,3px);
+    transition: .3s ease;
+  }
+  
+  .close .line2{
+    opacity: 0;
+  }
+  
+  .close .line3{
+    transform: rotate(45deg) translate(-5px,-3px);
+    transition: .3s ease;
+  }
+  
+  @keyframes linksFade {
+    from{
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to{
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+
+
+  /*ÜRÜNLERRRRRRR*/
+
+  .product-list {
+    background-color:#65778e;
+    padding: 20px;
+  }
+
+
+  .platform-buttons {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .platform-button {
+    background-color: yellow;
+    color: black;
+    font-weight:bold;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+  .platform-button:hover{
+    background-color: #6b82a0;
+     border: 1px solid white;
+     color: #fff;
+  }
+
+
+  
+  .product-rows {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+  }
+  
+  .product-row {
+    width: calc(33.33% - 20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .product {
+    background-color:#65778e;
+    padding: 10px;
+    border: 1px solid white ;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+  }
+  
+  .product-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: white;
+    font-weight:bold;
+  }
+  
+  .product-platform {
+    font-size: 14px;
+    color: white;
+   
+  }
+  
+  .product-image {
+    width: 151px;
+    height: auto;
+    margin: 0 auto;
+
+  }
+  
+  .product-price {
+    font-size: 16px;
+    color: white; /* Fiyat rengi */
+    font-weight:bold;
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+
+  
+  .buy-button {
+    background: yellow;
+    padding: 12px 15px;
+    border-radius: 25px;
+    color: black;
+    border: 1px solid yellow;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .3s ease;
+  }
+  
+  .buy-button:hover {
+     background-color: #6b82a0;
+     border: 1px solid white;
+     color: #fff;
+  }
+ 
+  .scroll-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+  }
+ 
+
+  
+  .scroll-button:hover {
+    background-color: #45a049;
+  }
+
+
+  /* Tablet ve Mobil Ekranlar İçin Stiller */
+@media screen and (max-width: 768px) {
+  .product-row {
+    width: calc(50% - 20px); /* Mobil ve tabletde iki sütun olacak şekilde ayarla */
+    margin-right: 0; /* Sağ boşluk kaldır */
+  }
+
+  .platform-button {
+    margin-bottom: 10px; /* Mobil ve tabletde platform butonları arasındaki boşluğu azalt */
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .product-row {
+    width: calc(100% - 20px); /* Mobilde tam genişlik sığdır */
+  }
+
+  .platform-button {
+    margin: 5px 0; /* Mobilde platform butonlarına daha yakın hizala */
+  }
+
+  .scroll-button {
+    display: block; /* Mobilde kaydırma düğmesini görünür yap */
+  }
+}
+  
+
+
+
+
+/* BÜLTENE ABONE OL KISMI */ 
+
+.newsletter {
+  background: black;
+  padding: 20px;
+  text-align: center;
+}
+
+.newsletter-line {
+  width: 40px;
+  height: 2px;
+  background: yellow;
+  margin: 10px auto;
+  transition: background-color 0.3s ease;
+}
+
+.newsletter-line:hover {
+  background-color: blue;
+}
+
+.newsletter-content {
+  color: white;
+  margin-top: 10px;
+}
+
+.newsletter-content h3 {
+  font-size: 24px;
+  margin-top: 30px;
+}
+.newsletter-content span{
+  font-weight:bold; 
+
+}
+
+.newsletter-content p {
+  font-size: 16px;
+  margin: 35px 0;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.newsletter-form button {
+  background: yellow;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 24px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.newsletter-form button:hover{
+  background: #fff;
+  color: blue;
+}
+
+
+.privacy-link {
+  margin: 10px 0;
+}
+
+.privacy-link a {
+  color: white;
+  text-decoration: none;
+  position: relative;
+}
+
+.privacy-link a:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+}
+
+.social-icons {
+  position: relative;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.social-icons a {
+  margin: 0 10px;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .newsletter {
+    padding: 10px;
+  }
+
+  .newsletter-line {
+    width: 30px;
+    margin: 8px auto;
+  }
+
+  .newsletter-content h3 {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  .newsletter-content span {
+    font-size: 18px;
+  }
+
+  .newsletter-content p {
+    font-size: 14px;
+    margin: 20px 0;
+  }
+
+  .newsletter-form {
+    margin: 10px 0;
+  }
+
+  .newsletter-form button {
+    padding: 8px 16px;
+    margin-left: 5px;
+  }
+
+  .privacy-link {
+    margin: 8px 0;
+  }
+
+  .privacy-link a {
+    font-size: 14px;
+  }
+
+  .social-icons {
+    margin-top: 8px;
+  }
+
+  .social-icons a {
+    margin: 0 8px;
+  }
+
+  .social-icons img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+
+
+
+
+/* FOOTER KISMI */ 
+
+
+.footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+
+
+.powered-by {
+  display: block;
+  font-weight: bold;
+  color: white;
+  margin-top: 10px; /* Boşluk eklendi */
+  margin-bottom: 10px; /* Boşluk eklendi */
+}
+
+.powered-text {
+  font-weight: normal;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 5px 0;
+  }
+
+  .powered-by {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .powered-text {
+    font-size: 12px;
+  }
+}
+
+
+/*-------------------------------Whatsapp kısmı  */
+
+.whatsapp-icon {
+   position: fixed;
+  bottom: 20px;
+  left: 20px;
+  transition: transform 0.3s ease;
+}
+
+
+
+.whatsapp-icon img{
+  width: 10%;
+  height:10%;
+}

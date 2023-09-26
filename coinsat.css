@@ -1,0 +1,619 @@
+/* menü ve navbar*/
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+a{
+    text-decoration: none;
+  }
+  
+  li{
+    list-style: none;
+    margin: 0; /* Remove the default margin on list items */
+  }
+  
+  nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 8vh;
+    background: black;
+    color: #eee;
+    font-family: 'Roboto', sans-serif;
+    padding: 0 20px; /* Add padding to the nav for spacing */
+  }
+  
+ .nav-logo img {
+  width:  50px;
+  height: 50px;
+}
+  .social-icon {
+  position: relative;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icon a {
+  margin: 0 10px;
+}
+
+.social-icon img {
+  width:  30px;
+  height: 30px;
+}
+  
+  .nav-links{
+    display: flex;
+    justify-content: center; /* Menü linklerini yatayda ortalama */
+    align-items: center; /* Menü linklerini dikeyde ortalama */
+    width: 50%;
+    margin-left: 186px;
+
+  }
+  .nav-links ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  justify-content: center; /* Center-align the menu links */
+  align-items: center;
+  margin-left: 30px; /* Add left margin to shift the menu links slightly to the right */
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+}
+  .nav-links a{
+    color: #eee;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin: 0 10px; /* Add some horizontal spacing between menu links */
+
+  }
+  .nav-links a:hover{
+    color: blue;
+  }
+  .nav-links a.active{
+    color: yellow;
+  }
+  .nav-links li button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+  .nav-links .tr {
+  width: 45px;
+  height: 30px;
+  margin-right: 5px;
+  margin-top: -17px;
+}
+.nav-links .en{
+  width: 60px;
+  height: 30px;
+  margin-right: 5px;
+  margin-top: -17px;
+}
+
+/* DROPDOWN */
+
+/* Genel stil */
+.language-select-container {
+    display: flex;
+    align-items: center;
+}
+
+#language-select {
+    padding: 10px;
+    font-size: 16px;
+    background-color: yellow; /* Arka plan rengi - istediğiniz rengi burada belirleyin */
+    color: black;
+}
+
+#language-select option {
+    padding: 5px;
+}
+
+#language-select option img {
+    width: 20px;
+    height: auto;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Mobil cihazlara uyumlu stil */
+@media (max-width: 767px) {
+    #language-select {
+        font-size: 14px;
+    }
+
+    #language-select option img {
+        width: 10px; /* Örneğin 10px olarak küçültebilirsiniz */
+    }
+}
+
+
+ 
+/* Bayrakların stillemeleri */
+#turkish-flag,
+#english-flag {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  height: 18px;
+  vertical-align: middle;
+}
+
+/* Bayraklara aralık vermek için */
+#turkish-flag + #english-flag {
+  margin-left: 10px;
+}
+
+/* Türk bayrağını sağa itmek */
+#turkish-flag {
+  order: 2;
+}
+
+/* İngiliz bayrağını sağa itmek */
+#english-flag {
+  order: 1;
+}
+
+  
+  .burger{
+    display: none;
+    cursor: pointer;
+  }
+  
+  .burger .line1,
+  .burger .line2,
+  .burger .line3{
+    width: 24px;
+    height: 3px;
+    background-color: #eee;
+    transition: .3s ease;
+  }
+  .burger .line2{
+    margin: 3px 0px;
+  }
+  
+  @media screen and (max-width: 768px){
+    body{
+      overflow-x: hidden;
+    }
+  
+    .burger{
+      display: block;
+    }
+  
+    .nav-links{
+      position: absolute;
+      top: 8vh;
+      right: 0;
+      width: 100%;
+      height: 23vh;
+      display: flex;
+      flex-direction: column;
+      background: black;
+      align-items: center;
+      justify-content: space-around;
+      transform: translateX(100%);
+      transition: .5s ease;
+    }
+    .nav-logo img {
+  width:  40px;
+  height: 40px;
+}
+     .nav-links .tr {
+  width: 45px;
+  height: 30px;
+  margin-right: 61px;
+  margin-top: -14px;
+}
+.nav-links .en{
+  width: 60px;
+  height: 30px;
+  margin-right: -78px;
+  margin-top: -43px;
+}
+ .social-icon {
+  position: relative;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icon a {
+  margin: 0 10px;
+}
+
+.social-icon img {
+  width:  22px;
+  height: 22px;
+}
+
+
+   
+    .nav-links li{
+      opacity: 0;
+    }
+  }
+  
+  .nav-active{
+    transform: translateX(0);
+  }
+  
+  .close .line1{
+    transform: rotate(-45deg) translate(-5px,3px);
+    transition: .3s ease;
+  }
+  
+  .close .line2{
+    opacity: 0;
+  }
+  
+  .close .line3{
+    transform: rotate(45deg) translate(-5px,-3px);
+    transition: .3s ease;
+  }
+  
+  @keyframes linksFade {
+    from{
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to{
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+
+
+
+  /*SİPARİŞ LOGO */
+
+  .order-section {
+    text-align: center;
+    padding: 200px;
+    background-color:#65778e ;
+  }
+  
+  .order-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: -142px;
+    color: #ffff;
+  }
+  
+  .order-description {
+    color: #ffff;
+    font-size: 16px;
+    margin-bottom: 62px;
+  }
+  
+  .order-buttons {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .order-button {
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+    padding: 20px 20px;
+    border-radius: 15px;
+    border: 1px solid #000307;
+    background-color: #65778e;
+    color: #ffff;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+  }
+  .order-button:hover{
+     background-color: #6b82a0;
+     border: 1px solid white;
+     color: #fff;
+  }
+  
+   
+  .order-button img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+  
+  
+
+ /* Tablet ve Mobil Ekranlar İçin Stiller */
+@media screen and (max-width: 768px) {
+
+  .order-buttons{
+    flex-direction: column;
+  }
+  .order-section {
+    padding: 150px; /* Tablet boyutları için padding'i azalt */
+  }
+
+  .order-title {
+    font-size: 22px; /* Başlığın boyutunu azalt */
+    margin-top: -60px; /* Başlığın konumunu ayarla */
+    color: #ffff;
+  }
+
+  .order-description {
+    display: flex;
+    flex-direction: column; /* Metni alt alta göstermek için */
+    justify-content: center; /* Yatayda ortala */
+    align-items: center; /* Dikeyde ortala */
+    margin-bottom: 42px; /* Açıklamanın alt boşluğunu ayarla */
+  }
+
+  .order-description p {
+    margin: 0; /* Varsayılan paragraf marjını sıfırla */
+  }
+
+ 
+   .order-button {
+    font-size: 18px; /* Metin boyutunu ayarla */
+    padding: 34px 37px; /* Yüksekliği ve genişliği ayarla */
+    border: 1px solid #000307;
+    background-color: #65778e;
+    color: #ffff;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    width: 150px;
+    margin-bottom: 88px;
+    margin-left: -67px;
+  }
+
+  .order-button:hover{
+     background-color: #6b82a0;
+     border: 1px solid white;
+     color: #fff;
+  }
+
+  .order-button .social-logo {
+    width: 30px; /* Logo boyutunu ayarla */
+    height: 30px;
+    margin-right: 10px; /* Logo ile metin arasındaki boşluğu ayarla */
+  }
+}
+/* BÜLTENE ABONE OL KISMI */ 
+
+.newsletter {
+  background: black;
+  padding: 20px;
+  text-align: center;
+}
+
+.newsletter-line {
+  width: 40px;
+  height: 2px;
+  background: yellow;
+  margin: 10px auto;
+  transition: background-color 0.3s ease;
+}
+
+.newsletter-line:hover {
+  background-color: blue;
+}
+
+.newsletter-content {
+  color: white;
+  margin-top: 10px;
+}
+
+.newsletter-content h3 {
+  font-size: 24px;
+  margin-top: 30px;
+}
+.newsletter-content span{
+  font-weight:bold; 
+
+}
+
+.newsletter-content p {
+  font-size: 16px;
+  margin: 35px 0;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.newsletter-form button {
+  background: yellow;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 24px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.newsletter-form button:hover{
+  background: #fff;
+  color: blue;
+}
+
+
+.privacy-link {
+  margin: 10px 0;
+}
+
+.privacy-link a {
+  color: white;
+  text-decoration: none;
+  position: relative;
+}
+
+.privacy-link a:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+}
+
+.social-icons {
+  position: relative;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.social-icons a {
+  margin: 0 10px;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .newsletter {
+    padding: 10px;
+  }
+
+  .newsletter-line {
+    width: 30px;
+    margin: 8px auto;
+  }
+
+  .newsletter-content h3 {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  .newsletter-content span {
+    font-size: 18px;
+  }
+
+  .newsletter-content p {
+    font-size: 14px;
+    margin: 20px 0;
+  }
+
+  .newsletter-form {
+    margin: 10px 0;
+  }
+
+  .newsletter-form button {
+    padding: 8px 16px;
+    margin-left: 5px;
+  }
+
+  .privacy-link {
+    margin: 8px 0;
+  }
+
+  .privacy-link a {
+    font-size: 14px;
+  }
+
+  .social-icons {
+    margin-top: 8px;
+  }
+
+  .social-icons a {
+    margin: 0 8px;
+  }
+
+  .social-icons img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+
+
+
+
+/* FOOTER KISMI */ 
+
+
+.footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+
+
+.powered-by {
+  display: block;
+  font-weight: bold;
+  color: white;
+  margin-top: 10px; /* Boşluk eklendi */
+  margin-bottom: 10px; /* Boşluk eklendi */
+}
+
+.powered-text {
+  font-weight: normal;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 110px 0;
+  }
+
+  .powered-by {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .powered-text {
+    font-size: 12px;
+  }
+}
+
+/*-------------------------------Whatsapp kısmı  */
+
+.whatsapp-icon {
+   position: fixed;
+  bottom: 20px;
+  left: 20px;
+  transition: transform 0.3s ease;
+}
+
+
+
+.whatsapp-icon img{
+  width: 10%;
+  height:10%;
+}
